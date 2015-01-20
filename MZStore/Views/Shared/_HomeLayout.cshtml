@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style type="text/css">
+        .title
+        {
+            border: 0 none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 46px;
+    margin: 0 1px;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    position: relative;
+    text-decoration: none;
+    top: 1px;
+        }
+        .realign
+        {
+                       
+            padding-right:12px;
+            
+        }
+    </style>
+</head>
+<body>
+    <header style="top:auto;width:auto">
+        
+        <img src="~/Images/Music image.jpg"  style="background-position: -10px -10px;
+    height: 63px;
+    width: 109px;float: left"/>
+        <h1 class="title">Music Store</h1>
+        <a class="realign" href="~/Home/Index">Home</a>
+        <a class="realign" href="~/Home/Store">Store</a>
+        <a class="realign" href="~/ShoppingCart/Index">Cart</a>
+        
+    </header>
+    
+        
+    
+    <div>
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@using MZStore.Models
+@model IEnumerable<MZStore.Models.Album>
+
+@{
+
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Music Albums Available in @ViewBag.Category Category</h2>
+
+<span>Count:</span>@Model.Count()
+<br/>
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("Details", new { id=item.AlbumId })">
+        <img src="~/Images/Music%20CD.png" border="0" width="70" height="60" />
+        @item.Title
+    </a>                   
+    <br/><br/>            
+}

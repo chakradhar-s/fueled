@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MZStore.Models.Album>
+
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Store</h2>
+
+<p>
+    All Music Albums available in the Store
+</p>
+
+    <div class="container">
+<div class="row">
+    <div class="col-md-9 col-sm-6 col-lg-3">
+        @foreach (var item in Model)
+        {
+           <p>
+        <a href="@Url.Action("Details", new { id=item.AlbumId })" >
+                <img src="~/Images/Music%20CD.png" border="0" width="60" height="50" />@item.Title
+        </a>
+            </p>
+          }
+        </div>
+    </div>
+        </div>
+

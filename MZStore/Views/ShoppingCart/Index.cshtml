@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Cart>
+@using MZStore.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Review Your Cart</h2>
+<a href="~/Home/Index">Home</a>
+<a href="~/CheckOut/AddressAndPayment">Checkout >></a>
+<br/>
+@{
+    if(Session["CartId"]==null)
+    {
+        <span>
+            cart is empty
+        </span>
+<br/>
+    <span>Total:0</span>
+        Session["Total"] = 0;
+    }
+    else
+    {
+        Calculation obj = new Calculation();
+        obj.Total = 0;
+        <table border="1">
+            <tr>
+                <th>Album Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                @Model.Count();
+            </tr>
+            @foreach (Cart item in Model)
+            {
+                Calculation obj1 = new Calculation();
+
+                int t1=item.Count ?? 0;
+                decimal t2 = item.Album.Price;               
+                obj.Total = obj.Total + obj1.Price(t1, t2);
+                <tr>
+                    <td>@item.Album.Title</td>
+                    <td>@item.Album.Price</td>
+                    <td>@item.Count</td>
+                    <td><a href="~/ShoppingCart/RemovingCart/@item.RecordId">Remove From cart</a> </td>
+                </tr>
+            }
+
+        </table>
+    <span>Total:@obj.Total</span> Session["Total"] = obj.Total;
+    }
+}
+

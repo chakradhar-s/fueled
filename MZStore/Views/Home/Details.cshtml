@@ -1,0 +1,73 @@
+﻿@model MZStore.Models.Album
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+@{
+    if ((bool)ViewData["visted"])
+    {
+        <span style="font-size:large">Added to the cart Successfully</span>
+
+    }
+}
+
+<fieldset>
+    <legend>Album</legend>
+    <form name="detailForm" action="~/ShoppingCart/AddingCartItems" method="post">
+       
+        
+        <input type="hidden" name="almID" id="almId" value="@Model.AlbumId" />
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Title)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.CategoryName)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.ArtistName)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ArtistName)
+        </div>
+
+        <div class="display-label">
+            @Html.DisplayNameFor(model => model.Price)
+            <br/>
+        </div>   
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Price)
+            
+        </div>      
+        
+            <span>Quantity:</span>
+            <input type="text" name="quantity" id="quantity" />
+          
+            
+        
+        
+        <div class="ui-button-text">
+            <input type="submit" value="Add To Cart">
+        </div>
+
+
+        @*@Html.ActionLink("Add To Cart", "Edit", new { id = Model.AlbumId,quan })*@
+        @*<a href="~/ShoppingCart/Index/@Model.AlbumId/"><span>Add To Cart</span></a>*@
+
+    </form>
+</fieldset>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

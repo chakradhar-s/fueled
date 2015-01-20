@@ -1,0 +1,64 @@
+﻿@using MZStore.Models
+@using System
+@model IEnumerable<Album>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+   
+  
+@{
+    int d = 0;
+    <div class="jumb">
+        <h1>Top 5 Albums</h1>
+        <br />
+        <div class="container">
+            <div class="row">
+                @foreach (Album item in Model)
+                {
+                    d++;
+                    <div class="col-md-4 col-sm-6 col-lg-3">
+
+                        <p>
+                            <a href="@Url.Action("Details", new { id=item.AlbumId })">
+                                <img src="~/Images/Music%20CD.png" border="0" width="70" height="60" />
+                                @item.Title
+                            </a>
+                        </p>
+                        @if (d == 2)
+                        {
+                            <div class="clearfix visible-md-block"></div>
+                        }
+                    </div>
+
+                }
+            </div>
+         </div>
+    </div>
+    <div class="komb hidden-xs hidden-sm">
+        <h2>Index</h2>
+
+
+        <ul id="categories">
+            <li class="option"><a href="/Home/Category?value=Rock"> rock</a></li>
+
+            <li class="option"><a href="/Home/Category?value=Disco">Disco</a></li>
+
+            <li class="option"><a href="/Home/Category?value=Disco">Disco</a></li>
+
+            <li class="option"><a href="/Home/Category?value=jazz">jazz</a></li>
+
+            <li class="option"><a href="/Home/Category?value=pop">pop</a></li>
+
+            <li><a href="/Home/Category?value=Classical">Classical</a></li>
+
+            <li><a href="/Home/Category?value=Blues">Blues</a></li>
+
+            <li><a href="/Home/Category?value=Hip%20Hop">Hip Hop</a></li>
+        </ul>
+    </div>
+
+}
+
+
+

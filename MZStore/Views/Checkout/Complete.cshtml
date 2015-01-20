@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "";
+}
+
+<h2>Complete</h2>
+@if(ViewData["suc"].Equals("success"))
+{
+    <span class="alert-info">Check out completed</span><br/>
+    <span> Thanks for your order ! your order number is : @ViewData["orderdetailId"]</span><br/>
+    <span> how about shooping for some more music in our store</span>
+}
+else
+{
+    <span>order is unsuccessful</span>
+}
+

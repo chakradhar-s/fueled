@@ -1,0 +1,135 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*form fields*/
+form#HeaderSearchForm {
+border: 1px solid #3b3b3b;
+display: inline-block;
+float: right;
+width: 175px;
+background-color: #eee;
+margin-bottom: 4px;
+}
+form#HeaderSearchForm input {
+background-color: #eee;
+border: 0;
+height: 16px;
+width: 145px;
+color: #3b3b3b;
+display: inline-block;
+margin: 1px 0 0 0;
+padding: 1px 4px 1px 10px;
+float: left;
+}
+form#HeaderSearchForm button {
+background-color: #eee;
+border: 0;
+padding: 0;
+margin: 2px 2px 0 0;
+cursor: pointer;
+color: #3b3b3b;
+display: inline-block;
+float: right;
+}
+.header-search-button {
+    background: url('../images/HeaderFooterSprite.png') no-repeat scroll -204px -2px;
+    background-image: url('../Images/HeaderFooterSprite.png');
+    background-position-x: -204px;
+    background-position-y: -2px;
+    background-size: initial;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: scroll;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    width: 14px;
+    height: 16px;
+    overflow: hidden;
+}
+#SearchFlyoutContainer {
+color: #3b3b3b!important;
+padding: 0!important;
+width: 155px!important;
+border-left: solid 1px #eee!important;
+border-right: solid 1px #eee!important;
+border-bottom: solid 1px #eee!important;
+}
+#SearchFlyoutContainer {
+color: #3b3b3b!important;
+padding: 0!important;
+width: 155px!important;
+border-left: solid 1px #eee!important;
+border-right: solid 1px #eee!important;
+border-bottom: solid 1px #eee!important;
+}
+ #SearchFlyoutContainer ul {
+margin: 0!important;
+padding: 0!important;
+}
+
+/*home page */
+.jumb{
+	margin-top:100px;
+	margin-left: 100px;
+	padding:12px;
+	background-color: #E4E4E4;		
+		
+}
+
+.komb{
+	position: absolute;
+	top: 150px;
+	left: 68px;
+	border: thin solid #000000;
+	background-color: #E5BF94;
+}
+.komb #categories
+{
+	font-family: Constantia, Georgia, serif;
+	list-style-type: none;
+	padding-right: 10px;
+	margin: 0 25px 0 0;
+	float: left;	
+}
+
+#categories a:link, #categories a:visited
+{
+	color: #F46739;	
+	text-decoration: none;
+}
+
+#categories a:hover
+{
+	color: #000;
+}
+div p a:link
+{
+	text-decoration: none;
+	color: #227F17;
+}
+div p a:hover
+{
+	color: #000;
+}
