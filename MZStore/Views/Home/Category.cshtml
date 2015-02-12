@@ -6,16 +6,21 @@
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="jumbotron" id="rr">
+    <div class="container">
+        <div class="row">
+            <h2>Music Albums Available in @ViewBag.Category Category</h2>
+            <span>Count:</span>@Model.Count()
+        </div>
+        @foreach (var item in Model)
+        { <div class="col-lg-4 col-md-3 col-sm-2">
+            <a href="@Url.Action("Details", new { id=item.AlbumId })">
+                <img src="~/Images/Music%20CD.png" border="0" width="70" height="60" />
+                @item.Title
+            </a>
 
-<h2>Music Albums Available in @ViewBag.Category Category</h2>
+        </div>
+        }
+    </div>
 
-<span>Count:</span>@Model.Count()
-<br/>
-@foreach (var item in Model)
-{
-    <a href="@Url.Action("Details", new { id=item.AlbumId })">
-        <img src="~/Images/Music%20CD.png" border="0" width="70" height="60" />
-        @item.Title
-    </a>                   
-    <br/><br/>            
-}
+</div>

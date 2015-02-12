@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MZStore.Models;
+using System.Threading;
 
 namespace MusicStore.Controllers
 {
@@ -14,8 +15,9 @@ namespace MusicStore.Controllers
          //
         // GET: /ShoppingCart/                 
       
-        public ActionResult Index()
-        {           
+        public PartialViewResult Index()
+        {
+            Thread.Sleep(1000);
             List<Cart> cList;
             //List<Album> selectedAlbums=new List<Album>();
             if (Session["CartId"] == null)
@@ -38,7 +40,7 @@ namespace MusicStore.Controllers
             //shop.MyAlbums = selectedAlbums;
             //shop.Mycart = cList;
           
-            return View(cList);           
+            return PartialView("_Index",cList);           
         }
         public ActionResult AddingCartItems(int almId,int quantity)
         {

@@ -41,6 +41,7 @@ namespace MZStore.Controllers
             if(err==0)
             {
                 ViewData["suc"] = "success";
+                Session["CartId"] = null;
             }
             return View();
         }

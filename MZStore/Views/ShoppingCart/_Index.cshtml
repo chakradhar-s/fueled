@@ -1,22 +1,23 @@
 ﻿@model IEnumerable<Cart>
 @using MZStore.Models
-@{
-    ViewBag.Title = "Index";
-}
 
 <h2>Review Your Cart</h2>
 <a href="~/Home/Index">Home</a>
 <a href="~/CheckOut/AddressAndPayment">Checkout >></a>
 <br/>
+
 @{
-    if(Session["CartId"]==null)
+    if (Session["CartId"] == null)
     {
-        <span>
-            cart is empty
-        </span>
-<br/>
-    <span>Total:0</span>
-        Session["Total"] = 0;
+        <div class="empty">
+            <div class="big"> Shopping bag empty</div>
+            <p>If items in your bag are missing,<a href="#signin" class="btn-login">login to your account</a> to view them.</p>
+            <br />
+            <span>Total:0</span>
+            @{Session["Total"] = 0;
+    }
+        </div>
+        
     }
     else
     {

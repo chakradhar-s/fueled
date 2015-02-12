@@ -1,28 +1,44 @@
 ﻿@{
     ViewBag.Title = "AddressAndPayment";
 }
-
-<h2>AddressAndPayment</h2>
-<!--@Html.BeginForm("Complete","Checkout",FormMethod.Post)  -->
-<form action="~/CheckOut/Complete" method="post">
-    <span>FirstName</span>
-    <input type="text" id="FirstName" name="FirstName" class="input-group" /><br/>
-    <span>LastName</span>
-    <input type="text" id="LastName" name="LastName" class="input-group" /><br />
-    <span>Address</span>
-    <input type="text" id="Address" name="Address" class="input-group" /><br />
-    <span>City</span>
-    <input type="text" id="City" name="City" class="input-group" /><br />
-    <span>State</span>
-    <input type="text" id="State" name="State" class="input-group" /><br />
-    <span>Postal Code</span>
-    <input type="text" id="PostalCode" name="PostalCode" class="input-group"><br />
-    <span>Country</span>
-    <input type="text" id="Country" name="Country" class="input-group" /><br />
-    <span>Phone</span>
-    <input type="text" id="Phone" name="Phone" class="input-group" /><br />
-    <span>Email</span>
-    <input type="text" id="Email" name="Email" class="input-group" /><br />
-    <input type="submit" value="Submit Order" />
-</form>
-
+<div class="jumbotron" id="rr">
+    <h2>AddressAndPayment</h2>
+    <div class="container">        
+        <div class="row">
+            <form action="~/CheckOut/Complete" method="post">
+                <div class="col-lg-4 col-md-5 col-sm-5">
+                    <span class="spnfield">FirstName</span>
+                    <input class="tfield" type="text" id="FirstName" name="FirstName" />
+                    <span class="spnfield">LastName</span>
+                    <input class="tfield" type="text" id="LastName" name="LastName" />                                        
+                    <span class="spnfield">City</span>
+                    <input class="tfield" type="text" id="City" name="City" />  
+                    <span class="spnfield">State</span>
+                    <input class="tfield" type="text" id="State" name="State" />  
+                    <span class="spnfield">Email</span>
+                    <input class="tfield" type="email" id="Email" name="Email" />             
+                </div>                
+                <div class="col-lg-6 col-md-5">
+                    <span class="spnfield">Address</span>
+                    @*<input type="text" id="Address" name="Address" />*@
+                    <textarea id="thj" rows="3" cols="150" name="Address"></textarea>
+                </div>
+                <div class="col-lg-4 col-md-5 col-sm-5">                    
+                    <span class="spnfield">Postal Code</span>
+                    <input class="tfield" type="text" id="PostalCode" name="PostalCode">
+                    <span class="spnfield">Country</span>
+                    <input class="tfield" type="text" id="Country" name="Country" />
+                    <span class="spnfield">Phone</span>
+                    <input class="tfield" type="text" id="Phone" name="Phone" />                    
+                </div>                              
+                      
+                    
+                    <input type="submit" value="Submit Order"/>
+                
+                
+                <!--@Html.BeginForm("Complete","Checkout",FormMethod.Post)  -->
+            </form>
+        </div>
+    </div>
+</div>
+       

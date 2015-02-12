@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+   <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -22,11 +22,23 @@
     width: 209px;float: left" />
                 @Html.ActionLink("Music Store", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Browse All", "Store", "Home")</li>
-                    <li>@Html.ActionLink("Cart", "Index", "ShoppingCart")</li>
+                    <li>
+                        <a href="/ShoppingCart/Index" target="_self" data-track="bag" class="cart">
+                            cart
+                            <div class="badge"></div>
+                        </a>
+                    </li>                         
+                   
+                        @*new AjaxOptions{
+                       UpdateTargetId = "parial",
+                       InsertionMode=InsertionMode.InsertAfter,
+                       HttpMethod="GET"*@
+                   }
                 </ul>
                 @Html.Partial("_LoginPartial")
                 
@@ -42,21 +54,76 @@
                         <ul style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul>
                     </div>
                 </div>
-            </form>
-            
-        </div>
+            </form>            
+                      
+            <div class="flyout bag">
+                    <div class="arrow"></div>
+                    <div class="contents"></div>                    
+             </div>
+          </div>
     </div>
-   
     <div class="container body-content">
+       
         @RenderBody()
         <hr />
+     
+        <div>
+
+        </div>
         <footer class="navbar-default">
+            <span id="val">value</span>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+   
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+            $("a.cart").on('mouseenter', function () {
+
+                $(this).closest('.container').find('.flyout').css({
+                    'position': 'absolute', 'top': '55px', 'left': '420px','z-index': '6'                    
+                });
+                $(this).closest('.container').find('.arrow').css({ 'left': '185px' });
+                $(this).closest('.container').find('.flyout').toggleClass('show');
+                //alert($(this).closest('.container').find('.flyout').prop("className"));
+                //alert($(this).closest('.container').find('.contents').prop("className")+"now going to load");
+                //alert($(this).closest('.container').find('.contents').last().prop("className"));
+                //$(targeted).load('/ShoppingCart/Index');                
+                var targeted = $(this).closest('.container').find('.contents');
+                $.get('/ShoppingCart/Index', function (data) {
+                    $(targeted).replaceWith(data);
+                });
+               
+            });
+
+            //$(".flyout").filter(".bag").filter(".show").on('mouseover', function (event) { event.preventDefault(); $('#val').text(k); k = 1; $('#val').text(k); });
+
+            $(".flyout").filter(".bag").filter(".show").on('mouseleave', function () {
+                alert($(this).prop("className"));
+                    $(this).closest('.container').find('.flyout').toggleClass('show');
+                                
+                //alert($(this).closest('.container').find('.flyout').prop("className"));
+                //alert($(this).closest('.container').find('.flyout').prop("className"));
+                //$(this).closest('.navbar-collapse').find('.flyout.bag').hide();
+            });
+            
+        })       
+    </script>
+  
+     
+
+
+
+
+
+
+
+
+
     @RenderSection("scripts", required: false)
 </body>
 </html>
